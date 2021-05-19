@@ -61,7 +61,7 @@ module Ohai
         rescue Ohai::Exceptions::Error, SystemExit # SystemExit: abort or exit from plug-in should exit Ohai with failure code
           raise
         rescue Exception => e
-          logger.trace("Plugin #{plugin.name} threw exception #{e.inspect} #{e.backtrace.join("\n")}")
+          logger.warn("Plugin #{plugin.name} threw exception #{e.inspect} #{e.backtrace.join("\n")}")
         end
       end
       logger.trace("Plugin #{plugin.name} took #{"%f" % elapsed.truncate(6)} seconds to run.")
