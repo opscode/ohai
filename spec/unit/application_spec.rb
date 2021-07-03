@@ -44,7 +44,7 @@ RSpec.describe "Ohai::Application" do
         before do
           if windows?
             expect(ChefConfig::WorkstationConfigLoader).to receive(:new)
-              .with("C:#{config_file}", Ohai::Log)
+              .with(/[CD]:#{config_file}/, Ohai::Log)
               .and_return(config_loader)
           else
             expect(ChefConfig::WorkstationConfigLoader).to receive(:new)
