@@ -9,11 +9,12 @@ name: exec
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}-latest
     strategy:
       matrix:
+        os: [ubuntu, macos]
         ruby: ['2.7', '3.0']
-    name: Unit test on Ruby ${{ matrix.ruby }}
+    name: Exec Ohai on Ruby ${{ matrix.ruby }}
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
